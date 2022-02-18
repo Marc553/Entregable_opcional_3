@@ -152,6 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a08fcc085190c4c9ccc1e73d6b5f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  divisor: 3
+  intArray: 
+  numEnemies: 1
+  posicion: {x: 0, y: 0, z: 0}
+  objeto: {fileID: 3311915254103798273, guid: dbb410ad1cff70444a61210275fd555d, type: 3}
 --- !u!4 &128425783
 Transform:
   m_ObjectHideFlags: 0
