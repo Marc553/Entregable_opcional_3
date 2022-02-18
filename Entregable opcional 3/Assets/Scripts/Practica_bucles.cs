@@ -7,10 +7,14 @@ public class Practica_bucles : MonoBehaviour
     public int divisor = 3;
     public int[] intArray;
     public int numEnemies = 1;
-
     public Vector3 posicion;
-    
     public GameObject objeto;
+    public GameObject objeto2;
+    public GameObject objeto3;
+    public GameObject[] gOArray;
+    public Material[] matArray;
+    public Vector3 escala = new Vector3(0.2f,0.2f,0.2f);
+    public string[] strArray;
     
 
     void Start()
@@ -27,6 +31,14 @@ public class Practica_bucles : MonoBehaviour
         //Ejercicio5_while();
         //Ejercicio6_for();
         //Ejercicio6_while();
+        //Ejercicio7_for();
+        //Ejercicio7_while();
+        //StartCoroutine(Ejercicio8_for());
+        //StartCoroutine(Ejercicio8_while());
+        //StartCoroutine(Ejercicio9_for());
+        //StartCoroutine(Ejercicio9_while());
+        //StartCoroutine(Ejercicio10_for());
+        //StartCoroutine(Ejercicio10_while());
     }
 
     
@@ -85,8 +97,49 @@ public class Practica_bucles : MonoBehaviour
         for (int i = 0; i <= numEnemies; i++)
         {
             posicion = new Vector3(i, i, 0);
-            Instantiate(objeto, posicion,
-                objeto.transform.rotation);
+            Instantiate(objeto2, posicion,
+                objeto2.transform.rotation);
+        }
+    }
+
+    public void Ejercicio7_for()
+    {
+        for(int i = 0; i < matArray.Length; i++)
+        {
+            posicion = new Vector3(i, i, 0);
+            Instantiate(objeto3, posicion, objeto3.transform.rotation);
+            objeto3.GetComponent<MeshRenderer>().material = matArray[i];
+        }
+    }          
+
+    public IEnumerator Ejercicio8_for()
+    {
+        
+        for (int i = 0; i<10; i++)
+        {
+            yield return new WaitForSeconds(1.5f);
+            transform.localScale = escala * i;
+           
+        }
+    }
+
+    public IEnumerator Ejercicio9_for()
+    {
+         for(int i = 0; i < gOArray.Length; i++)
+        {
+            gOArray[i].SetActive(true);
+            yield return new WaitForSeconds(2);
+        }
+
+    }
+    
+    public IEnumerator Ejercicio10_for()
+    {
+        for (int i = 0; i <strArray.Length; i++)
+        {
+            Debug.Log(strArray[i]);
+            float tiempo = 0.5f * i;
+            yield return new WaitForSeconds(tiempo);
         }
     }
 
@@ -152,10 +205,60 @@ public class Practica_bucles : MonoBehaviour
        
         int i = 0;
          while(i <= numEnemies)
-        {
+         {
             posicion = new Vector3(i, i, 0);
             Instantiate(objeto, posicion,
                 objeto.transform.rotation);
+            i++;
+         }
+    }
+
+    public void Ejercicio7_while()
+    {
+        int i = 0;
+
+        while(i < matArray.Length)
+        {
+            posicion = new Vector3(i, i, 0);
+            Instantiate(objeto3, posicion, objeto3.transform.rotation);
+            objeto3.GetComponent<MeshRenderer>().material = matArray[i];
+            i++;
+        }
+        
+    }
+
+    public IEnumerator Ejercicio8_while()
+    {
+        int i = 0;
+        while(i < 10)
+        {
+            yield return new WaitForSeconds(1.5f);
+            transform.localScale = escala * i;
+            i++;
+
+        }
+    }
+
+    public IEnumerator Ejercicio9_while()
+    {int i = 0;
+        while (i < gOArray.Length)
+        {
+            gOArray[i].SetActive(true);
+            yield return new WaitForSeconds(2);
+            i++;
+        }
+
+    }
+
+    public IEnumerator Ejercicio10_while()
+    {
+        int i = 0;
+       while ( i < strArray.Length)
+        {
+            Debug.Log(strArray[i]);
+            float tiempo = 0.5f * i;
+            yield return new WaitForSeconds(tiempo);
+            i++;
         }
     }
 
